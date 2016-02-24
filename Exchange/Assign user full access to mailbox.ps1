@@ -1,0 +1,1 @@
+Add-MailboxPermission -Identity DESTINATIONUSER -User 'USERWITHACCESS' -AccessRight FullAccess -InheritanceType All -Automapping $false 

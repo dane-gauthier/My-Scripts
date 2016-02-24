@@ -1,0 +1,1 @@
+Get-WmiObject win32_printer -ComputerName localhost | select caption,Location,Portname | Export-Csv printers.csv

@@ -1,0 +1,1 @@
+get-mailbox | get-mailboxstatistics | select DisplayName,PrimarySMTPAddress,LastLogonTime | export-csv C:\Temp\OldUsers.csv -NoTypeInformation
