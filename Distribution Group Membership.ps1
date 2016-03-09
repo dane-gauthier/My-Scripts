@@ -1,0 +1,1 @@
+foreach ($group in Get-DistributionGroup -organizationalunit "<ORGUNIT>") { get-distributiongroupmember $group | sort displayname | ft @{expression={$_.displayname};Label="$group"} | Out-File c:\temp\DistributionListMembers.txt -append}
