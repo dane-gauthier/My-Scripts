@@ -11,7 +11,7 @@ foreach ($user in (Get-ADGroupMember -Identity "OU OF USERS TO APPLY TO.  CAN CH
     $DaysTilExpire = ($UserExpiraryDate.ExpiryDate - $TargetDateBegin).Days
 $EmailBody = 
 @"
-Dear $($user.GivenName),
+Dear $($user.Name),
 
 Your password will expire after $DaysTilExpire days.  You will need to change your password to keep using your account.
 
