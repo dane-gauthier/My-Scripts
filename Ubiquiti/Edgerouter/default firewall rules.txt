@@ -1,0 +1,33 @@
+set firewall name LAN_IN default-action accept
+set firewall name LAN_IN description 'packets from intranet'
+set firewall name LAN_IN rule 3 action accept
+set firewall name LAN_IN rule 3 source address INTERNAL_NETWORK_RANGE
+set firewall name LAN_LOCAL default-action accept
+set firewall name LAN_LOCAL description 'packets from intranet to gateway'
+set firewall name LAN_OUT default-action accept
+set firewall name LAN_OUT description 'packets forward to intranet'
+set firewall name LAN_OUT enable-default-log
+set firewall name LAN_OUT rule 1 action accept
+set firewall name LAN_OUT rule 1 destination address INTERNAL_NETWORK_RANGE
+set firewall name LAN_OUT rule 1 log enable
+set firewall name LAN_Policy default-action accept
+set firewall name LAN_Policy description ''
+set firewall name LAN_Policy rule 1 action accept
+set firewall name LAN_Policy rule 1 description 'allow all'
+set firewall name LAN_Policy rule 1 log disable
+set firewall name LAN_Policy rule 1 protocol all
+set firewall name LAN_Policy rule 1 source address INTERNAL_NETWORK_RANGE
+set firewall name WAN_IN default-action drop
+set firewall name WAN_IN description 'packets from internet to intranet'
+set firewall name WAN_IN rule 1 action accept
+set firewall name WAN_IN rule 1 description 'allow established/related sessions'
+set firewall name WAN_IN rule 1 state established enable
+set firewall name WAN_IN rule 1 state invalid disable
+set firewall name WAN_IN rule 1 state new disable
+set firewall name WAN_IN rule 1 state related enable
+set firewall name WAN_IN rule 2 action drop
+set firewall name WAN_IN rule 2 description 'drop invalid state'
+set firewall name WAN_IN rule 2 state established disable
+set firewall name WAN_IN rule 2 state invalid enable
+set firewall name WAN_IN rule 2 state new disable
+set firewall name WAN_IN rule 2 state related disable
