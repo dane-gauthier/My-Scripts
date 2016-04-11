@@ -1,0 +1,35 @@
+configure
+top
+# Set-up the details of the DownStream Policy
+set traffic-policy shaper DownStream description "DownStream QoS policy"
+set traffic-policy shaper DownStream bandwidth 5000kbit
+set traffic-policy shaper DownStream class 10 description "RTP"
+set traffic-policy shaper DownStream class 10 bandwidth 25%
+set traffic-policy shaper DownStream class 10 ceiling 100%
+set traffic-policy shaper DownStream class 10 match VOIP-RTP ip dscp 46
+set traffic-policy shaper DownStream class 20 description "SIP"
+set traffic-policy shaper DownStream class 20 bandwidth 5%
+set traffic-policy shaper DownStream class 20 ceiling 100%
+set traffic-policy shaper DownStream class 20 match VOIP-SIP ip dscp 24
+set traffic-policy shaper DownStream default bandwidth 70%
+set traffic-policy shaper DownStream default ceiling 100%
+#  Set-up the details of the UpStream Policy
+set traffic-policy shaper UpStream description "UpStream QoS policy"
+set traffic-policy shaper UpStream bandwidth 1000kbit
+set traffic-policy shaper UpStream class 10 description "RTP"
+set traffic-policy shaper UpStream class 10 bandwidth 50%
+set traffic-policy shaper UpStream class 10 ceiling 100%
+set traffic-policy shaper UpStream class 10 match VOIP-RTP ip dscp 46
+set traffic-policy shaper UpStream class 20 description "SIP"
+set traffic-policy shaper UpStream class 20 bandwidth 10%
+set traffic-policy shaper UpStream class 20 ceiling 100%
+set traffic-policy shaper UpStream class 20 match VOIP-SIP ip dscp 24
+set traffic-policy shaper UpStream default bandwidth 40%
+set traffic-policy shaper UpStream default ceiling 100%
+# Apply the policies to the interfaces
+set interfaces ethernet eth1 traffic-policy out DownStream
+set interfaces ethernet eth0 traffic-policy out UpStream
+# Commit, Save, and Exit
+commit
+save
+exit
