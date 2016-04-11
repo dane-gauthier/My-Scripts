@@ -1,0 +1,7 @@
+Computer Configuration\Policies\Windows Settings\Security Settings\Local Policies\Security Options\Devices: Prevent users from installing printer drivers - Disabled
+Computer Configuration\Policies\Administrative Templates\System\Driver Installation\Allow non-administrators to install drivers for these device setup classes - Enabled
+ 
+Allowed device setup class GUIDs:
+{4d36e979-e325-11ce-bfc1-08002be10318}
+{4658ee7e-f050-11d1-b6bd-00c04fa372a7}
+ 
