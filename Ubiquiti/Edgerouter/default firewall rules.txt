@@ -31,3 +31,17 @@ set firewall name WAN_IN rule 2 state established disable
 set firewall name WAN_IN rule 2 state invalid enable
 set firewall name WAN_IN rule 2 state new disable
 set firewall name WAN_IN rule 2 state related disable
+set firewall name WAN_LOCAL default-action drop
+set firewall name WAN_LOCAL description 'packets from internet to intranet'
+set firewall name WAN_LOCAL rule 1 action accept
+set firewall name WAN_LOCAL rule 1 description 'allow established/related sessions'
+set firewall name WAN_LOCAL rule 1 state established enable
+set firewall name WAN_LOCAL rule 1 state invalid disable
+set firewall name WAN_LOCAL rule 1 state new disable
+set firewall name WAN_LOCAL rule 1 state related enable
+set firewall name WAN_LOCAL rule 2 action drop
+set firewall name WAN_LOCAL rule 2 description 'drop invalid state'
+set firewall name WAN_LOCAL rule 2 state established disable
+set firewall name WAN_LOCAL rule 2 state invalid enable
+set firewall name WAN_LOCAL rule 2 state new disable
+set firewall name WAN_LOCAL rule 2 state related disable
