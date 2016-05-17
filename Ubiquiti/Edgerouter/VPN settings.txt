@@ -1,0 +1,2 @@
+IKE group = Phase 1
+ESP group = Phase 2
