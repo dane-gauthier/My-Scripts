@@ -4,7 +4,7 @@ import-module smbwitness
 function NewShare {
     $ShareName = Read-Host "Share Name: "   
     $SharePath = Read-Host "Share Path: "
-    $UserAccount = thuffman
+    $UserAccount = <USERNAME>
     new-smbshare -Name $ShareName -Path $SharePath
     Grant-SmbShareAccess -Name $ShareName -AccountName $UserAccount -AccessRight Full
 }
