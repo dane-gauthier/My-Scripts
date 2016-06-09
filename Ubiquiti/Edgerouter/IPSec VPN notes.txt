@@ -1,0 +1,4 @@
+1. ike = phase 1; esp = phase 2
+2. on wan_local firewall, allow udp port 500,4500
+2a. allow protocol 50 and 51
+3. on wan_in firewall, allow remote subnet to access local subnet
