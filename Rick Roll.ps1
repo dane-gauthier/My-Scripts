@@ -1,4 +1,4 @@
-# PowerShell + HTML5 prototype. Needs audio. Run: iex (New-Object Net.WebClient).DownloadString("http://bit.ly/e0Mw9w")
+# PowerShell + HTML5 prototype. Needs audio. haha Run: iex (New-Object Net.WebClient).DownloadString("http://bit.ly/e0Mw9w")
 if($host.Name -ne "ConsoleHost")
 {
     Start-Process powershell -ArgumentList '-noprofile -noexit -command iex (New-Object Net.WebClient).DownloadString(''http://bit.ly/e0Mw9w'')'
