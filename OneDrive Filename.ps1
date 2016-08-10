@@ -1,7 +1,4 @@
-﻿# test Example
-# CheckIllegalCharacters -Location "c:\test"
-# RemoveIllegalCharacters -Location "c:\test"
-<#
+﻿<#
 
 .SYNOPSIS
 This script will seek any file name errors that exist files that wouldn't be compatible with syncing in OneDrive.  Also has the ability to correct the file names.
@@ -9,12 +6,15 @@ This script will seek any file name errors that exist files that wouldn't be com
 .DESCRIPTION
 Removes the following illegal characters from OneDrive Filenames: ~ " # % & * : < > ? / \ { | }.
 
+For original script, see link
+
 .EXAMPLE
 Import-module "OneDrive Filename.ps1"
 CheckIllegalCharacters -Location "c:\test"
 RemoveIllegalCharacters -Location "c:\test"
 
-
+.LINK
+https://gallery.technet.microsoft.com/office/PowerShell-Remove-Illegal-ebefc69b
 
 #>
 
