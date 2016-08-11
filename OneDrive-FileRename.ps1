@@ -32,6 +32,9 @@ function CheckIllegalCharacters ($Location)
         
         #Report item has been found if verbose mode is selected
         if ($Verbose) { Write-Host Found a $type called $item.FullName }
+
+        #Report if item has double spaces in the file name
+        if ($item.Name -match '  ') {Write-Host "Item $item has a double space in the name "}
         
         #Check length if item name is 128 characters or more  
         if ($item.Name.Length -gt 127)
@@ -69,7 +72,7 @@ function CheckIllegalCharacters ($Location)
             if ($newFileName.Contains("..")) { Write-Host $type $item.FullName contains double periods -ForegroundColor red }
             while ($newFileName.Contains(".."))  { $newFileName = $newFileName.Replace("..", ".") }
             
-            
+
         }
     }
 }
@@ -88,6 +91,9 @@ function RemoveIllegalCharacters ($Location)
         
         #Report item has been found if verbose mode is selected
         if ($Verbose) { Write-Host Found a $type called $item.FullName }
+
+        #Remove the double space in file/folder name
+        if ($item.Name -match '  ') {$item | Rename-Item -newname {$_.Name -replace '  ',' '}}
         
         #Check length if item name is 128 characters or more  
         if ($item.Name.Length -gt 127)
@@ -109,7 +115,7 @@ function RemoveIllegalCharacters ($Location)
             Matches $illegalChars | ForEach-Object {
                 Write-Host $type $item.FullName has the illegal character $_.Value -ForegroundColor Red
                 #These characters may be used on the file system but not SharePoint
-                if ($_.Value -match "&") { $newFileName = ($newFileName -replace "&", "and") }
+                if ($_.Value -match "&") { $newFileName = ($newFileName -replace "&", " and ") }
                 if ($_.Value -match "{") { $newFileName = ($newFileName -replace "{", "(") }
                 if ($_.Value -match "}") { $newFileName = ($newFileName -replace "}", ")") }
                 if ($_.Value -match "~") { $newFileName = ($newFileName -replace "~", "-") }
@@ -139,6 +145,6 @@ function RemoveIllegalCharacters ($Location)
 
 CheckIllegalCharacters -Location ($Location = read-host "path of onedrive folder")
 
-$fix = read-host "Do you want to remove following issues (yes or no): "
+$fix = read-host "Do you want to remove following issues (yes or no)"
 
 if ($fix -eq 'yes') {RemoveIllegalCharacters -location $Location}
