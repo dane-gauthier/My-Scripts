@@ -107,6 +107,7 @@ function RemoveIllegalCharacters ($Location)
         else
         {
             $illegalChars = '[&{}~#%]'
+            $illegalSpaces = '  '
             filter Matches($illegalChars)
             {
                 $item.Name | Select-String -AllMatches $illegalChars |
