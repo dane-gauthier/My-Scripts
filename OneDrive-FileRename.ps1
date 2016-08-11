@@ -33,9 +33,13 @@ function CheckIllegalCharacters ($Location)
         #Report item has been found if verbose mode is selected
         if ($Verbose) { Write-Host Found a $type called $item.FullName }
 
-        #Report if item has double spaces in the file name
-        if ($item.Name -match '  ') {Write-Host "Item $item has a double space in the name " -ForegroundColor Red}
-        
+        #Report if item/folder has double spaces in the file name
+        #if (($item.PSIsContainer).Name -match '  ') {Write-Host "Folder $item has a double space in the name " -ForegroundColor Red}
+        if ($item.Name -match '  ') 
+            {
+                if ($item.PSIsContainer) {Write-Host "Folder $item has a double space in the name " -ForegroundColor Red}    
+                else {Write-Host "File $item has a double space in the name " -ForegroundColor Red}
+            }
         #Check length if item name is 128 characters or more  
         if ($item.Name.Length -gt 127)
         {
