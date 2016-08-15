@@ -141,12 +141,15 @@ function RemoveIllegalCharacters ($Location)
             
             
         }
-    #Remove Double spaces from File/Folder Name
+        #Remove Double spaces from File/Folder Name
+        <#
         if ($item.Name -match '  ') 
             {
+                $oldName = $item.FullName
                 $newFileName = $item.Name | Rename-Item -PassThru -NewName {$item.Name -replace "  "," "}
                 Write-Output "$item has been changed to $newFileName"               
             }
+        #>
     } 
 }
 
