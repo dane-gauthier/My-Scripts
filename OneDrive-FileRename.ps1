@@ -141,16 +141,19 @@ function RemoveIllegalCharacters ($Location)
             
             
         }
-    }
-
     #Remove Double spaces from File/Folder Name
-    if ($items.Name -match '  ') {$items | Rename-Item -whatif -newname {$_.Name -replace '  ',' '}} 
+        if ($item.Name -match '  ') 
+            {
+                $newFileName = $item.Name | Rename-Item -PassThru -NewName {$item.Name -replace "  "," "}
+                Write-Output "$item has been changed to $newFileName"               
+            }
+    } 
 }
 
-CheckIllegalCharacters -Location ($Location = read-host "path of onedrive folder")
+CheckIllegalCharacters -Location "C:\test\" #($Location = read-host "path of onedrive folder")
 
 $fix = read-host "Do you want to remove following issues (yes or no)"
 
-if ($fix -eq 'yes') {RemoveIllegalCharacters -location $Location}
+if ($fix -eq 'yes') {RemoveIllegalCharacters -location "C:\test"} #$Location}
 if ($fix -eq 'no') {}
 else {}
