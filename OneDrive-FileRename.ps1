@@ -92,7 +92,14 @@ function RemoveIllegalCharacters ($Location)
         #Check if the item is a file or a folder or a Sub Folder
         if ($item.PSIsContainer) { $type = "Folder" }
         else { $type = "File" }
-        
+
+        <#
+        if (($newFileName -ne $item.Name))
+        {
+            Rename-Item $item.FullName -NewName ($newFileName)
+            Write-Host $type $item.Name has been changed to $newFileName -ForegroundColor Blue
+        }
+        #>        
         #Report item has been found if verbose mode is selected
         if ($Verbose) { Write-Host Found a $type called $item.FullName }
        
@@ -132,6 +139,13 @@ function RemoveIllegalCharacters ($Location)
             if ($newFileName.Contains("..")) { Write-Host $type $item.FullName contains double periods -ForegroundColor red }
             while ($newFileName.Contains(".."))  { $newFileName = $newFileName.Replace("..", ".") }
 
+            #Remove Double spaces from File/Folder Name
+            if ($item.Name -match '  ') 
+            {
+                $newFileName = $item.Name
+                $newFileName = ($newFileName -replace "  "," ")
+            }
+
              #Rename the file and folder names 
             if (($newFileName -ne $item.Name))
             {
@@ -141,15 +155,6 @@ function RemoveIllegalCharacters ($Location)
             
             
         }
-        #Remove Double spaces from File/Folder Name
-        <#
-        if ($item.Name -match '  ') 
-            {
-                $oldName = $item.FullName
-                $newFileName = $item.Name | Rename-Item -PassThru -NewName {$item.Name -replace "  "," "}
-                Write-Output "$item has been changed to $newFileName"               
-            }
-        #>
     } 
 }
 
