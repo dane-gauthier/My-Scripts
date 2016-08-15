@@ -158,10 +158,10 @@ function RemoveIllegalCharacters ($Location)
     } 
 }
 
-CheckIllegalCharacters -Location "C:\test\" #($Location = read-host "path of onedrive folder")
+CheckIllegalCharacters -Location ($Location = read-host "path of onedrive folder")
 
 $fix = read-host "Do you want to remove following issues (yes or no)"
 
-if ($fix -eq 'yes') {RemoveIllegalCharacters -location "C:\test"} #$Location}
+if ($fix -eq 'yes') {RemoveIllegalCharacters -location $Location}
 if ($fix -eq 'no') {}
 else {}
