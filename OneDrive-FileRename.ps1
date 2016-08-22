@@ -142,6 +142,7 @@ function RemoveIllegalCharacters ($Location)
             #Remove Double spaces from File/Folder Name
             if ($item.Name -match '  ') 
             {
+                Write-Host $type $item.FullName contains double spaces -ForegroundColor Red
                 $newFileName = $item.Name
                 $newFileName = ($newFileName -replace "  "," ")
             }
@@ -152,8 +153,6 @@ function RemoveIllegalCharacters ($Location)
                 Rename-Item $item.FullName -NewName ($newFileName)
                 Write-Host $type $item.Name has been changed to $newFileName -ForegroundColor Blue
             }
-            
-            
         }
     } 
 }
