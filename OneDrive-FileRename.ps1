@@ -93,13 +93,6 @@ function RemoveIllegalCharacters ($Location)
         if ($item.PSIsContainer) { $type = "Folder" }
         else { $type = "File" }
 
-        <#
-        if (($newFileName -ne $item.Name))
-        {
-            Rename-Item $item.FullName -NewName ($newFileName)
-            Write-Host $type $item.Name has been changed to $newFileName -ForegroundColor Blue
-        }
-        #>        
         #Report item has been found if verbose mode is selected
         if ($Verbose) { Write-Host Found a $type called $item.FullName }
        
