@@ -1,0 +1,5 @@
+<QueryList>
+  <Query Id="0" Path="Microsoft-Windows-PrintService/Operational">
+    <Select Path="Microsoft-Windows-PrintService/Operational">*[System[(EventID=307)]] and *[UserData[DocumentPrinted[(Param5='PRINTER NAME')]]]</Select>
+  </Query>
+</QueryList>
