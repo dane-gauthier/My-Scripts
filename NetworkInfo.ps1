@@ -2,7 +2,7 @@
 Things to check for:
 1. Network interface address
 2. Ping to 8.8.8.8,8.8.4.4,4.2.2.1,4.2.2.2
-3. Ping google.com
+3. Ping google.com and other websites
 #>
 
 $nwINFO = Get-WmiObject -ComputerName $ENV:computername Win32_NetworkAdapterConfiguration | Where-Object { $_.IPAddress -ne $null -AND $_.Description -ne "VirtualBox Host-Only Ethernet Adapter" }
