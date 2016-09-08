@@ -44,4 +44,5 @@ echo " "
 $ip = Invoke-WebRequest -URI "http://icanhazip.com"
 Write-Host "Public IP address : $ip"
 
+pause
 #endregion
