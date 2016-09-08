@@ -1,11 +1,13 @@
 function Get-HardDriveSize
 {
+  <#
   param
   (
     $ComputerName,
 
     $Credential
   )
+  #>
 
   # get calculated properties:
   $prop1 = @{

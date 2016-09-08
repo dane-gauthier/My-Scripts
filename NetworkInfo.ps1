@@ -18,7 +18,6 @@ $nwDNS = $nwINFO.DNSServerSearchOrder
 #---------------------------------------------------------
 #region Main output area
 #Get Network Adapter info
-Write-Host
 Write-Host "
 Computername = $nwServerName
 Description = $nwDescrip
@@ -45,6 +44,4 @@ echo " "
 $ip = Invoke-WebRequest -URI "http://icanhazip.com"
 Write-Host "Public IP address : $ip"
 
-
-exit
 #endregion
