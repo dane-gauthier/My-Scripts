@@ -1,3 +1,3 @@
 $ip = Invoke-WebRequest -URI "http://icanhazip.com"
-write-output $ip.Content
+write-output "Your Public IP address is: $ip"
 pause
