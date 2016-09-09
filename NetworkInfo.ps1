@@ -27,7 +27,10 @@ Default Gateway = $nwGateWay
 MAC Address = $nwMacADD
 DNS Server(s) = $nwDNS
 "
-
+#Public IP Fetch
+$ip = Invoke-WebRequest -URI "http://icanhazip.com"
+Write-Host "Public IP address : $ip"
+echo " "
 Write-Host "Now testing pinging Internet-based DNS Servers and resolving several public URL names"
 #Test Internet Pings
 Test-Connection -ComputerName 8.8.8.8 -count 1
@@ -40,9 +43,10 @@ Test-Connection -ComputerName facebook.com -count 1
 Test-Connection -ComputerName yahoo.com -count 1
 Test-Connection -ComputerName twitter.com -count 1
 echo " "
-#Public IP Fetch
-$ip = Invoke-WebRequest -URI "http://icanhazip.com"
-Write-Host "Public IP address : $ip"
+#tracert to google's public address
+tracert google.com
+echo " "
+
 
 pause
 #endregion
