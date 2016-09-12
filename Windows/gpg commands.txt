@@ -1,0 +1,3 @@
+to encrypt = gpg --encrypt --armor -r <ADDRESS> FILENAME
+to decrypt = gpg FILENAME
+
