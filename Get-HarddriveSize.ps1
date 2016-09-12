@@ -26,7 +26,7 @@ function Get-HardDriveSize
   }
 
   $prop4 = @{
-    Name = 'Percent'
+    Name = 'Percent Free'
     Expression = { [Math]::Round(($_.Freespace * 100 / $_.Size),1) }
   }
 
