@@ -13,3 +13,10 @@ Install-PackageProvider NuGet -MinimumVersion '2.8.5.201' -Force
 Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
 Install-Module -Name 'posh-git'
 
+git config --global user.email "your@email.com"
+git config --global user.name "Your Name"
+git config --global push.default simple
+git config --global core.ignorecase false
+
+# Configure line endings for windows
+git config --global core.autocrlf true
