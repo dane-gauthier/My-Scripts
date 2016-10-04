@@ -1,0 +1,25 @@
+set vpn ipsec auto-firewall-nat-exclude enable
+set vpn ipsec esp-group VPN compression disable
+set vpn ipsec esp-group VPN lifetime 3600
+set vpn ipsec esp-group VPN mode tunnel
+set vpn ipsec esp-group VPN pfs enable
+set vpn ipsec esp-group VPN proposal 1 encryption aes256
+set vpn ipsec esp-group VPN proposal 1 hash sha1
+set vpn ipsec ike-group VPN ikev2-reauth no
+set vpn ipsec ike-group VPN key-exchange ikev1
+set vpn ipsec ike-group VPN lifetime 28800
+set vpn ipsec ike-group VPN mode main
+set vpn ipsec ike-group VPN proposal 1 dh-group 2
+set vpn ipsec ike-group VPN proposal 1 encryption aes256
+set vpn ipsec ike-group VPN proposal 1 hash sha1
+set vpn ipsec nat-networks allowed-network 0.0.0.0/0
+set vpn ipsec nat-traversal enable
+set vpn ipsec site-to-site peer 172.16.10.1 authentication mode pre-shared-secret
+set vpn ipsec site-to-site peer 172.16.10.1 authentication pre-shared-secret P@ssw0rd
+set vpn ipsec site-to-site peer 172.16.10.1 connection-type initiate
+set vpn ipsec site-to-site peer 172.16.10.1 default-esp-group VPN
+set vpn ipsec site-to-site peer 172.16.10.1 ike-group VPN
+set vpn ipsec site-to-site peer 172.16.10.1 ikev2-reauth inherit
+set vpn ipsec site-to-site peer 172.16.10.1 local-address WANADDRESS
+set vpn ipsec site-to-site peer 172.16.10.1 vti bind vti64
+set vpn ipsec site-to-site peer 172.16.10.1 vti esp-group VPN
