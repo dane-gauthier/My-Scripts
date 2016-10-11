@@ -17,4 +17,4 @@ New-ADgroup -GroupCategory security -GroupScope Global -Name $name -Path "OU=Sec
 #>
 
 #Users Folder Groups
-New-ADObject -type OrganizationalUnit -name 'Disabled Users' -Path "OU=$domainName,dc=$domainName,dc=$domainSuffix"
+New-ADObject -type OrganizationalUnit -name 'Disabled Users' -Path "OU=Users,OU=$domainName,dc=$domainName,dc=$domainSuffix"
