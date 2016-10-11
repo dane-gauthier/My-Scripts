@@ -1,1 +1,0 @@
-Search-ADAccount -UsersOnly -AccountInactive -TimeSpan 90 | ?{$_.enabled -eq $True} | Get-ADUser -Properties Name, sAMAccountName, givenName, sn, lastLogonDate | Select Name, sAMAccountName, givenName, sn, lastLogonDate
