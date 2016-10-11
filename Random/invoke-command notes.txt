@@ -1,0 +1,6 @@
+https://4sysops.com/archives/use-powershell-invoke-command-to-run-scripts-on-remote-computers/
+
+syntax:
+invoke-command -computername COMPUTERNAME -credentials CRED -FilePath PATHTOFILE
+or
+invoke-command -computername COMPUTERNAME -credentials CRED -ScriptBlock { SCRIPT COMMAND }
