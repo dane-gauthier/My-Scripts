@@ -1,0 +1,16 @@
+https://cyberarms.wordpress.com/2012/12/15/file-forensics-analyzing-msg-files-and-attachments-without-outlook/
+
+Unzip email file using 7zip
+
+0x0C1A Sender Name
+0x0C1F Sender Email
+0x0E1D Subject (Normalized)
+0x0100 Message Body
+
+_recip directory - Attachment
+0x3701 Attachment data (actual attachment)
+0x3703 Attachment extension
+0x3704 Attachment Filename
+
+File Format list:
+http://www.fileformat.info/format/outlookmsg/
