@@ -1,0 +1,9 @@
+systemctl reload-or-restart 3CXCfgServ01.service
+systemctl reload-or-restart 3CXEventNotificationManager.service
+systemctl reload-or-restart 3CXIVR01.service
+systemctl reload-or-restart 3CXMediaServer.service
+systemctl reload-or-restart 3CXPhoneSystem01.service
+systemctl reload-or-restart 3CXPhoneSystemMC01.service
+systemctl reload-or-restart 3CXQueueManager01.service
+systemctl reload-or-restart 3CXSystemService01.service
+systemctl reload-or-restart 3CXTunnel01.service
