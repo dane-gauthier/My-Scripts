@@ -28,6 +28,13 @@ iptables -A INPUT -p tcp --dport 5432 -j ACCEPT
 iptables -A INPUT -p tcp --dport 5482:5485 -j ACCEPT
 iptables -A INPUT -p tcp --dport 5488 -j ACCEPT
 
+#Enable Logging
+iptables -A INPUT -j LOGNDROP
+iptables -A LOGNDROP -p tcp -m limit --limit 5/min -j LOG --log-prefix "Denied TCP: " --log-level 7
+iptables -A LOGNDROP -p udp -m limit --limit 5/min -j LOG --log-prefix "Denied UDP: " --log-level 7
+iptables -A LOGNDROP -p icmp -m limit --limit 5/min -j LOG --log-prefix "Denied ICMP: " --log-level 7
+iptables -A LOGNDROP -j DROP
+
 #Default actions
 iptables -P FORWARD DROP
 iptables -P INPUT DROP
