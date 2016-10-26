@@ -22,8 +22,8 @@ iptables -A INPUT -p tcp --dport 5000 -j ACCEPT
 iptables -A INPUT -p tcp --dport 443 -j ACCEPT
 iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 iptables -A INPUT -p udp --dport 9000:9500 -j ACCEPT
-iptables -A INPUT -p udp --dport 5060 -j ACCEPT
-iptables -A INPUT -p udp --dport 5090 -j ACCEPT
+iptables -A INPUT -p tcp_udp --dport 5060 -j ACCEPT
+iptables -A INPUT -p tcp_udp --dport 5090 -j ACCEPT
 iptables -A INPUT -p tcp --dport 5432 -j ACCEPT
 iptables -A INPUT -p tcp --dport 5482:5485 -j ACCEPT
 iptables -A INPUT -p tcp --dport 5488 -j ACCEPT
