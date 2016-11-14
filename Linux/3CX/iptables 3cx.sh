@@ -16,7 +16,7 @@ iptables -I OUTPUT 2 -m conntrack --ctstate INVALID -j DROP
 iptables -I FORWARD 2 -m conntrack --ctstate INVALID -j DROP
 
 #Custom INPUT rules
-iptables -A INPUT -s $internalSubnet -p tcp --dport 22 -j ACCEPT
+iptables -I INPUT 3 -s $internalSubnet -p tcp --dport 22 -j ACCEPT
 iptables -A INPUT -p tcp --dport 5001 -j ACCEPT
 iptables -A INPUT -p tcp --dport 5000 -j ACCEPT
 iptables -A INPUT -p tcp --dport 443 -j ACCEPT
@@ -29,6 +29,7 @@ iptables -A INPUT -p tcp --dport 5482:5485 -j ACCEPT
 iptables -A INPUT -p tcp --dport 5488 -j ACCEPT
 
 #Enable Logging
+iptables -N LOGNDROP
 iptables -A INPUT -j LOGNDROP
 iptables -A LOGNDROP -p tcp -m limit --limit 5/min -j LOG --log-prefix "Denied TCP: " --log-level 7
 iptables -A LOGNDROP -p udp -m limit --limit 5/min -j LOG --log-prefix "Denied UDP: " --log-level 7
