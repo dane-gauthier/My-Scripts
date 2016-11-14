@@ -4,3 +4,5 @@ echo "deb http://downloads.3cx.com/downloads/3cxpbx/ /" | tee /etc/apt/sources.l
 apt-get update
 
 apt-get install 3cxpbx
+
+#location of 3cx scripts: /usr/sbin
