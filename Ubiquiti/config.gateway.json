@@ -1,0 +1,70 @@
+{
+	"firewall": {
+		"name": {
+			"WAN_LOCAL": {
+				"default-action": "drop",
+				"description": "packets from internet to gateway",
+				"rule": {
+					"1001": {
+						"action": "accept",
+						"description": "Allow L2TP",
+						"destination": {
+							"port": "500,4500,1701"
+						},
+						"protocol": "udp"
+					},
+					"1002": {
+						"action": "accept",
+						"description": "Allow ESP",
+						"protocol": "50"
+					}
+				}
+			}
+		}
+	},
+	"vpn": {
+		"ipsec": {
+			"auto-firewall-nat-exclude": "disable",
+			"ipsec-interfaces": {
+				"interface": [
+					"eth0"
+				]
+			},
+			"nat-networks": {
+				"allowed-network": {
+					"192.168.2.0/24": "''"
+				}
+			},
+			"nat-traversal": "enable"
+		},
+		"l2tp": {
+			"remote-access": {
+				"authentication": {
+					"local-users": "''",
+					"mode": "radius",
+					"radius-server": {
+						"RADIUS SERVER": {
+							"key": "RADIUSKEY"
+						}
+					}
+				},
+				"client-ip-pool": {
+					"start": "IPPOOLSTART",
+					"stop": "IPPOOLSTOP"
+				},
+				"dns-servers": {
+					"server-1": "DNSSERVER",
+					"server-2": "8.8.8.8"
+				},
+				"ipsec-settings": {
+					"authentication": {
+						"mode": "pre-shared-secret",
+						"pre-shared-secret": "PRESHAREDKEYFORVPN"
+					},
+					"ike-lifetime": "3600"
+				},
+				"outside-address": "WANIP"
+			}
+		}
+	}
+}
