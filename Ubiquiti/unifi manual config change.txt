@@ -1,0 +1,3 @@
+to dump config in JSON format: mca-ctrl -t dump-cfg
+
+once changes are made, save as config.gateway.json in base of site config folder on controller
