@@ -32,7 +32,7 @@
 			},
 			"nat-networks": {
 				"allowed-network": {
-					"192.168.2.0/24": "''"
+					"0.0.0.0/0": "''"
 				}
 			},
 			"nat-traversal": "enable"
@@ -43,27 +43,28 @@
 					"local-users": "''",
 					"mode": "radius",
 					"radius-server": {
-						"RADIUS SERVER": {
-							"key": "RADIUSKEY"
+						"RADIUSSERVERIP": {
+							"key": "RADIUSSECRET"
 						}
 					}
 				},
 				"client-ip-pool": {
-					"start": "IPPOOLSTART",
-					"stop": "IPPOOLSTOP"
+					"start": "DHCPRANGESTART",
+					"stop": "DHCPRANGESTOP"
 				},
 				"dns-servers": {
-					"server-1": "DNSSERVER",
+					"server-1": "INTERNALDNSSERVER",
 					"server-2": "8.8.8.8"
 				},
 				"ipsec-settings": {
 					"authentication": {
 						"mode": "pre-shared-secret",
-						"pre-shared-secret": "PRESHAREDKEYFORVPN"
+						"pre-shared-secret": "PRESHAREDSECRET"
 					},
 					"ike-lifetime": "3600"
 				},
-				"outside-address": "WANIP"
+				"outside-address": "EXTERNALIP",
+				"mtu": "1412"
 			}
 		}
 	}
