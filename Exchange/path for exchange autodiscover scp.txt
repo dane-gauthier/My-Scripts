@@ -1,0 +1,1 @@
+CN=ServerName,CN=Autodiscover,CN=Protocols,CN=ServerName,CN=Servers,CN=Exchange Administrative Group (FYDIBOHF23SPDLT),CN=Administrative Groups,CN=OrganizationName,CN=Microsoft Exchange,CN=Services,CN=Configuration,DC=DomainName,DC=Suffix
