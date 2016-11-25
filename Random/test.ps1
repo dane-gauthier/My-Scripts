@@ -2,7 +2,7 @@ Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
 $Form = New-Object system.Windows.Forms.Form
-$Form.Text = 'What to echo'
+$Form.Text = 'What to Ping'
 $Form.Size = New-Object System.Drawing.Size(300,200)
 $Form.StartPosition = "CenterScreen"
 
@@ -25,7 +25,7 @@ $Form.Controls.Add($CancelButton)
 $label = New-Object System.Windows.Forms.Label
 $label.Location = New-Object System.Drawing.Size(10,20)
 $label.Size = New-Object System.Drawing.Size(280,20)
-$label.Text = "Type something and press ENTER:"
+$label.Text = "Type an address to ping and press ENTER:"
 $Form.Controls.Add($label)
 
 $objTextbox = New-Object system.Windows.forms.TextBox
