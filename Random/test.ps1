@@ -22,15 +22,15 @@ $CancelButton.DialogResult = [System.Windows.Forms.DialogResult]::Cancel
 $Form.CancelButton = $CancelButton
 $Form.Controls.Add($CancelButton)
 
-$objLabel = New-Object System.Windows.Forms.Label
-$objLabel.Location = New-Object System.Drawing.Size(10,20) 
-$objLabel.Size = New-Object System.Drawing.Size(280,20) 
-$objLabel.Text = "Type something and press ENTER:"
-$Form.Controls.Add($objLabel)
+$label = New-Object System.Windows.Forms.Label
+$label.Location = New-Object System.Drawing.Size(10,20)
+$label.Size = New-Object System.Drawing.Size(280,20)
+$label.Text = "Type something and press ENTER:"
+$Form.Controls.Add($label)
 
 $objTextbox = New-Object system.Windows.forms.TextBox
 $objTextBox.Location = New-Object System.Drawing.Size(10,40)
-$objTextBox.Size = New-Object System.Drawing.Size(260,20) 
+$objTextBox.Size = New-Object System.Drawing.Size(260,20)
 $Form.Controls.Add($objTextBox)
 
  $Form.Topmost = $True
@@ -40,6 +40,6 @@ $result = $Form.ShowDialog()
 
 if ($result -eq [System.Windows.Forms.DialogResult]::OK)
 {
-    $x = $textBox.Text
-    write-host "you typed $x"
+    $ping = $objTextBox.Text
+    ping $ping
 }
