@@ -1,13 +1,13 @@
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
-$Form = New-Object system.Windows.Forms.Form
-$Form.Text = 'What to echo'
-$Form.Size = New-Object System.Drawing.Size(300,200)
+$Form = New-Object System.Windows.Forms.Form 
+$Form.Text = "Data Entry Form"
+$Form.Size = New-Object System.Drawing.Size(300,200) 
 $Form.StartPosition = "CenterScreen"
 
 $OKButton = New-Object System.Windows.Forms.Button
-$OKButton.Location = New-Object System.Drawing.Size(75,120)
+$OKButton.Location = New-Object System.Drawing.Point(75,120)
 $OKButton.Size = New-Object System.Drawing.Size(75,23)
 $OKButton.Text = "OK"
 $OKButton.DialogResult = [System.Windows.Forms.DialogResult]::OK
@@ -22,20 +22,20 @@ $CancelButton.DialogResult = [System.Windows.Forms.DialogResult]::Cancel
 $Form.CancelButton = $CancelButton
 $Form.Controls.Add($CancelButton)
 
-$objLabel = New-Object System.Windows.Forms.Label
-$objLabel.Location = New-Object System.Drawing.Size(10,20) 
-$objLabel.Size = New-Object System.Drawing.Size(280,20) 
-$objLabel.Text = "Type something and press ENTER:"
-$Form.Controls.Add($objLabel)
+$label = New-Object System.Windows.Forms.Label
+$label.Location = New-Object System.Drawing.Point(10,20) 
+$label.Size = New-Object System.Drawing.Size(280,20) 
+$label.Text = "Please enter the information in the space below:"
+$Form.Controls.Add($label) 
 
-$objTextbox = New-Object system.Windows.forms.TextBox
-$objTextBox.Location = New-Object System.Drawing.Size(10,40)
-$objTextBox.Size = New-Object System.Drawing.Size(260,20) 
-$Form.Controls.Add($objTextBox)
+$textBox = New-Object System.Windows.Forms.TextBox 
+$textBox.Location = New-Object System.Drawing.Point(10,40) 
+$textBox.Size = New-Object System.Drawing.Size(260,20) 
+$Form.Controls.Add($textBox) 
 
- $Form.Topmost = $True
+$Form.Topmost = $True
 
-$Form.Add_Shown({$objTextBox.Select()})
+$Form.Add_Shown({$textBox.Select()})
 $result = $Form.ShowDialog()
 
 if ($result -eq [System.Windows.Forms.DialogResult]::OK)
