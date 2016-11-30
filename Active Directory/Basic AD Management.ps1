@@ -19,7 +19,7 @@ $firstname = read-host 'First Name: '
 $lastname = read-host 'Last Name: '
 $password = read-host -AsSecureString
 
-new-aduser -SamAccountName $SamAccountName -GivenName $firstname -Surname $lastname -DisplayName "$firstname $lastname" -Path 'OU=Users,OU=SLAB,DC=ad,DC=secantlab,DC=com'
+new-aduser -SamAccountName $SamAccountName -GivenName $firstname -Surname $lastname -DisplayName "$firstname $lastname" -Path 'OU=Users,OU=LAB,DC=DOMAIN,DC=SUFFIX'
 Set-ADAccountPassword $SamAccountName -NewPassword $password 
 Enable-ADAccount $SamAccountName
 menu

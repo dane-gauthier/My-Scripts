@@ -1,7 +1,7 @@
 import-module ActiveDirectory
 
 $domainName = (read-host 'Name of domain, without ending suffix (.local, .com, etc...)').ToUpper()
-$domainSuffix = read-host 'Suffix of Full domain WITHOUT A PERIOD (ex. .com, .local, .tld, etc..)'
+$domainSuffix = read-host 'Suffix of Full domain (ex. .com, .local, .tld, etc..)'
 
 New-ADObject -type OrganizationalUnit -name $domainName -path "dc=$domainName,dc=$domainSuffix"
 New-ADObject -type OrganizationalUnit -name 'Computers' -path "OU=$domainName,dc=$domainName,dc=$domainSuffix"

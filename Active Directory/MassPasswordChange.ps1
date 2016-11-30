@@ -1,6 +1,6 @@
 $SearchBase = <INSERTOUPATH>
-$NewPassword = read-host "Enter the new password to set: "
-$ChangeAtLogon = Read-Host "Force change password at next logon (y/n): "
+$NewPassword = read-host "Enter the new password to set"
+$ChangeAtLogon = Read-Host "Force change password at next logon (y/n)"
 #
 #
 foreach ($i in get-aduser -filter * -searchbase $SearchBase) {
