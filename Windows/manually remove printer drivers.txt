@@ -1,0 +1,1 @@
+printui /s /t2 - brings up print server menu
