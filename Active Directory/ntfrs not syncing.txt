@@ -1,1 +1,11 @@
 https://support.microsoft.com/en-us/kb/2986364
+
+net stop ntfrs
+
+del %systemroot%\ntfrs\jet\*
+del %systemroot%\sysvol\domain\DO_NOT_REMOVE_NtFrs_PreInstall_Directory\*
+del %systemroot%\sysvol\staging\domain\*
+
+set reg key HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\SERVICES\NTFRS\Parameters\Backup/Restore\Process at Startup\BurFlags to D4
+
+net start ntfrs
