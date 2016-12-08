@@ -1,0 +1,5 @@
+To enable:
+bcdedit /set {default} bootmenupolicy legacy
+
+To disable:
+bcdedit /set {default} bootmenupolicy standard
