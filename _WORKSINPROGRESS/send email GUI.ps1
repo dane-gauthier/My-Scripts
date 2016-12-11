@@ -79,7 +79,7 @@ $Form.controls.Add($DescriptionBox)
 
 $Form.Topmost = $True
 
-$result = $Form.ShowDialog()
+$result = [void]$Form.ShowDialog()
 
 #---------Main Script-----------
 #----Variables----
