@@ -1,0 +1,10 @@
+set system package repository wheezy components 'main contrib non-free'
+set system package repository wheezy distribution wheezy
+set system package repository wheezy password ''
+set system package repository wheezy url 'http://ftp.us.debian.org/debian/'
+set system package repository wheezy username ''
+set system package repository wheezy-updates components 'main contrib non-free'
+set system package repository wheezy-updates distribution wheezy/updates
+set system package repository wheezy-updates password ''
+set system package repository wheezy-updates url 'http://security.debian.org/'
+set system package repository wheezy-updates username ''
