@@ -5,4 +5,4 @@ vssadmin List Shadows
 
 $ShadowPath = read-host 'copy and paste the shadow copy volume path in here'
 
-mklink /d C:\latestshadow $ShadowPath
+cmd /c "mklink /d C:\LatestShadow $ShadowPath"
