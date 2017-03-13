@@ -35,7 +35,7 @@ else {
         ADDeploy
     }
     else {
-        exit
+        exit()
     }
 }
 
