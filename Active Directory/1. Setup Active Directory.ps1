@@ -18,7 +18,10 @@ function ADDeploy {
 
 
 
-
+if ((Get-WmiObject -class Win32_OperatingSystem).Caption -notmatch 'Server') {
+    write-host 'Sorry, incompatible OS'
+    exit
+}
 
 Get-WindowsFeature AD-Domain-Services
 Pause
