@@ -18,7 +18,7 @@ function ADDeploy {
 
 
 
-if ((Get-WmiObject -class Win32_OperatingSystem).Caption -notmatch 'Server') {
+if ((Get-WmiObject -class Win32_OperatingSystem).Caption -notmatch 'Server 2012 R2') {
     write-host 'Sorry, incompatible OS'
     exit
 }
