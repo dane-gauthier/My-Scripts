@@ -2,6 +2,7 @@ function ADDeploy {
     Import-Module ADDSDeployment
     $DomainName = read-host 'Name of domain including suffix (contoso.com)'
     $DomainNetBiosName = read-host 'Domain NetBios Name (CONTOSO)'
+    
     Install-ADDSForest -CreateDNSDelegation:$false `
     -DatabasePath "C:\WINDOWS\NTDS" `
     -DomainMode "Win2012R2" `
@@ -24,11 +25,17 @@ Pause
 
 if ((Get-WindowsFeature AD-Domain-Services).InstallState -eq 'Insatlled') {
     Write-Host 'ADDS is already installed.  Proceeding to domain creation'
+    Pause
     ADDeploy
 }
 else {
-    Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
-    Pause
-    ADDeploy
+    if ((read-host 'Do you want to install the role? (y/n)') -eq 'y') {
+        Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
+        Pause
+        ADDeploy
+    }
+    else {
+        exit
+    }
 }
 
