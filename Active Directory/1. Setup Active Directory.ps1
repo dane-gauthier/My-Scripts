@@ -20,6 +20,7 @@ function ADDeploy {
 
 
 Get-WindowsFeature AD-Domain-Services
+Pause
 
 if ((Get-WindowsFeature AD-Domain-Services).InstallState -eq 'Insatlled') {
     Write-Host 'ADDS is already installed.  Proceeding to domain creation'
