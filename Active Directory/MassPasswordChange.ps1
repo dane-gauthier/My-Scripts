@@ -1,4 +1,4 @@
-$SearchBase = <PATHTOSEARCHBASE>
+$SearchBase = read-host 'OU path to users'
 $NewPassword = read-host "Enter the new password to set"
 $ChangeAtLogon = Read-Host "Force change password at next logon (y/n)"
 #

@@ -1,2 +1,2 @@
-SamAccountName,GivenName,SurName,Name,DisplayName,Description,Enabled
-johndoe,John,Doe,John Doe,John Doe,test user,$false
+SamAccountName,GivenName,SurName,Name,DisplayName,Enabled
+johndoe,John,Doe,John Doe,John Doe,$false
