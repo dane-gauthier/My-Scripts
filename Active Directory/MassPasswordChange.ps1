@@ -1,5 +1,11 @@
 $SearchBase = read-host 'OU path to users'
-$NewPassword = read-host "Enter the new password to set"
+$UseDefaultPassword = read-host 'Do you want to use the default password of Password1? (y/n)'
+if ($UseDefaultPassword -eq 'y') {
+    $NewPassword = 'Password1'
+}
+else {
+    $NewPassword = read-host "Enter the new password to set"
+}
 $ChangeAtLogon = Read-Host "Force change password at next logon (y/n)"
 #
 #
