@@ -7,7 +7,7 @@ Param(
     [switch]$RickRoll
 )
 
-$nwINFO = Get-WmiObject -ComputerName $ComputerName  Win32_NetworkAdapterConfiguration | Where-Object { $_.IPAddress -ne $null -AND $_.Description -ne "VirtualBox Host-Only Ethernet Adapter" }
+$nwINFO = Get-WmiObject -ComputerName $ComputerName  Win32_NetworkAdapterConfiguration | Where-Object { $_.IPAddress -ne $null -AND $_.Description -ne "VirtualBox Host-Only Ethernet Adapter" -AND $_.Description -ne "Npcap Loopback Adapter" }
 
 $nwServerName = $nwINFO.DNSHostName
 $nwDescrip = $nwINFO.Description
@@ -16,11 +16,14 @@ $nwSUBNET = $nwINFO.IpSubnet
 $nwGateWay = $nwINFO.DefaultIPGateway
 $nwMacADD = $nwINFO.MACAddress
 $nwDNS = $nwINFO.DNSServerSearchOrder
+$nwOS = (get-wmiobject -Class Win32_OperatingSystem).Caption
+$nwOSArchitecture = (Get-WmiObject -Class Win32_OperatingSystem).OSArchitecture
 
 #---------------------------------------------------------
 #region Main output area
 #Get Network Adapter info
 Write-Host "
+Operating System = $nwOS $nwOSArchitecture
 Computername = $nwServerName
 Description = $nwDescrip
 IP address(es) = $nwIPADDR
