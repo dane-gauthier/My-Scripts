@@ -1,7 +1,7 @@
 # Parameters to include trace, resolution of root DNS servers, and run on remote computer
 Param(
-    [Parameter(Mandatory=$true)]
-    [string]$ComputerName,
+    #[Parameter(Mandatory=$true)]
+    [array]$ComputerName = "$env:COMPUTERNAME",
     [switch]$IncludeTrace,
     [switch]$IncludeRootDNSServers,
     [switch]$RickRoll
