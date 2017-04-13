@@ -2,6 +2,11 @@ Param (
     [string]$URL
 )
 
+if ($URL -match $null) {
+    write-error -Message 'Missing imgur album URL'
+    break
+}
+
 $list = ((iwr -uri $URL).images).src
 $listcount = ((iwr -uri $URL).images).count
 
