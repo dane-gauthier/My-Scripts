@@ -47,6 +47,7 @@ Test-Connection -ComputerName google.com -count 1 -Source $ComputerName
 Test-Connection -ComputerName facebook.com -count 1 -Source $ComputerName
 Test-Connection -ComputerName yahoo.com -count 1 -Source $ComputerName
 Test-Connection -ComputerName twitter.com -count 1 -Source $ComputerName
+Test-Connection -ComputerName facebook.com -Count 1 -Source $ComputerName
 echo ""
 
 if ($IncludeRootDNSServers -eq $True) {
