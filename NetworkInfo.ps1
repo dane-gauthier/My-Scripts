@@ -33,8 +33,14 @@ MAC Address = $nwMacADD
 DNS Server(s) = $nwDNS
 "
 #Public IP Fetch
-$ip = Invoke-WebRequest -URI "http://icanhazip.com" -UseBasicParsing
-Write-Host "Public IP address : $ip"
+$ip = Invoke-WebRequest -URI "http://icanhazip.com" -UseBasicParsing -ErrorAction Stop
+if ($ip -eq $null) {
+    write-host 'No Internet Access.  Cannot Proceed.'
+    break
+}
+else {
+    Write-Host "Public IP address : $ip"
+}
 echo " "
 Write-Host "Now testing pinging Internet-based DNS Servers and resolving several public URL names"
 #Test Internet Pings
