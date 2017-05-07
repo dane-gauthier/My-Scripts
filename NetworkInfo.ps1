@@ -7,7 +7,7 @@ Param(
     [switch]$RickRoll
 )
 
-$nwINFO = Get-WmiObject -ComputerName $ComputerName  Win32_NetworkAdapterConfiguration | Where-Object { $_.IPAddress -ne $null -and $_.Description -notmatch 'VMware' -and $_.Description -notmatch 'Virtualbox' -AND $_.Description -notmatch 'Npcap' }
+$nwINFO = Get-WmiObject -ComputerName $ComputerName  Win32_NetworkAdapterConfiguration | Where-Object { $_.IPAddress -ne $null -and $_.Description -notmatch 'Hyper-v' -and $_.Description -notmatch 'VMware' -and $_.Description -notmatch 'Virtualbox' -AND $_.Description -notmatch 'Npcap' }
 
 $nwServerName = $nwINFO.DNSHostName
 $nwDescrip = $nwINFO.Description
