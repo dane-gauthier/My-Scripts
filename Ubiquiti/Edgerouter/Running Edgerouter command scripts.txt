@@ -1,0 +1,3 @@
+source /opt/vyatta/etc/functions/script-template
+
+{insert script commands line by line}
