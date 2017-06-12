@@ -489,32 +489,32 @@ Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer
  
 # Uninstall default bloatware
 Write-Host "Uninstalling default bloatware..."
-# Get-AppxPackage "Microsoft.3DBuilder" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.BingFinance" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.BingNews" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.BingSports" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.BingWeather" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.Getstarted" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.MicrosoftOfficeHub" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.MicrosoftSolitaireCollection" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.Office.OneNote" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.People" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.SkypeApp" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.Windows.Photos" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.WindowsAlarms" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.WindowsCamera" | Remove-AppxPackage
-# Get-AppxPackage "microsoft.windowscommunicationsapps" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.WindowsMaps" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.WindowsPhone" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.WindowsSoundRecorder" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.XboxApp" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.ZuneMusic" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.ZuneVideo" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.AppConnector" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.ConnectivityStore" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.Office.Sway" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.Messaging" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.CommsPhone" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.3DBuilder" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.BingFinance" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.BingNews" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.BingSports" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.BingWeather" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.Getstarted" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.MicrosoftOfficeHub" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.MicrosoftSolitaireCollection" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.Office.OneNote" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.People" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.SkypeApp" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.Windows.Photos" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.WindowsAlarms" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.WindowsCamera" | Remove-AppxPackage
+Get-AppxPackage "microsoft.windowscommunicationsapps" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.WindowsMaps" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.WindowsPhone" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.WindowsSoundRecorder" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.XboxApp" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.ZuneMusic" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.ZuneVideo" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.AppConnector" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.ConnectivityStore" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.Office.Sway" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.Messaging" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.CommsPhone" | Remove-AppxPackage
 Get-AppxPackage "9E2F88E3.Twitter" | Remove-AppxPackage
 Get-AppxPackage "king.com.CandyCrushSodaSaga" | Remove-AppxPackage
 Get-AppxPackage "4DF9E0F8.Netflix" | Remove-AppxPackage
@@ -523,7 +523,7 @@ Get-AppxPackage "4DF9E0F8.Netflix" | Remove-AppxPackage
 # Get-AppxPackage "Microsoft.OneConnect" | Remove-AppxPackage
 Get-AppxPackage "D52A8D61.FarmVille2CountryEscape" | Remove-AppxPackage
 Get-AppxPackage "GAMELOFTSA.Asphalt8Airborne" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.WindowsFeedbackHub" | Remove-AppxPackage 
+ Get-AppxPackage "Microsoft.WindowsFeedbackHub" | Remove-AppxPackage 
 
 # Install default Microsoft applications
 # Add-AppxPackage -DisableDevelopmentMode -Register "$($(Get-AppXPackage -AllUsers "Microsoft.3DBuilder").InstallLocation)\AppXManifest.xml"
@@ -569,10 +569,10 @@ Get-AppxPackage "GAMELOFTSA.Asphalt8Airborne" | Remove-AppxPackage
 # Remove-Item -Path C:\Mnt -Recurse
  
 # Disable Xbox DVR
-# If (!(Test-Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\GameDVR")) {
-# 	New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\GameDVR" | Out-Null
-# }
-# Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\GameDVR" -Name "AllowGameDVR" -Type DWord -Value 0
+If (!(Test-Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\GameDVR")) {
+	New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\GameDVR" | Out-Null
+}
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\GameDVR" -Name "AllowGameDVR" -Type DWord -Value 0
 
 # Enable Xbox DVR
 # Remove-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\GameDVR" -Name "AllowGameDVR" -ErrorAction SilentlyContinue
@@ -633,8 +633,8 @@ Set-ItemProperty -Path "HKCR:\Applications\photoviewer.dll\shell\open\DropTarget
 # Remove-Item -Path "HKCR:\Applications\photoviewer.dll\shell\open" -Recurse
  
 # Enable F8 boot menu options
-# Write-Host "Enabling F8 boot menu options..."
-# bcdedit /set `{current`} bootmenupolicy Legacy | Out-Null
+Write-Host "Enabling F8 boot menu options..."
+bcdedit /set `{current`} bootmenupolicy Legacy | Out-Null
 
 # Disable F8 boot menu options
 # bcdedit /set `{current`} bootmenupolicy Standard | Out-Null
