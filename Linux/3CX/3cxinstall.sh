@@ -6,3 +6,4 @@ apt-get update
 apt-get install 3cxpbx
 
 #location of 3cx scripts: /usr/sbin
+#location of 3cx system: /var/lib/3cxpbx
