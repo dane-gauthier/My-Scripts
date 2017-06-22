@@ -20,7 +20,7 @@ If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
     Exit
 }
  
- 
+Set-TimeZone -Name "Eastern Standard Time" 
  
 ##########
 # Privacy Settings
