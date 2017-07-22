@@ -257,14 +257,14 @@ Set-Service "HomeGroupProvider" -StartupType Disabled
 # Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\PushNotifications" -Name "ToastEnabled"
  
 # Disable Lock screen
-Write-Host "Disabling Lock screen..."
+<#Write-Host "Disabling Lock screen..."
 If (!(Test-Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization")) {
 	New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization" | Out-Null
 }
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization" -Name "NoLockScreen" -Type DWord -Value 1
-
+#>
 # Enable Lock screen
-# Remove-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization" -Name "NoLockScreen"
+Remove-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization" -Name "NoLockScreen"
 
 # Disable Lock screen (Anniversary Update workaround)
 #If ([System.Environment]::OSVersion.Version.Build -gt 14392) { # Apply only for Redstone 1 or newer
